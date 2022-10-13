@@ -1,0 +1,7 @@
+﻿version: '3'
+
+services:
+  game-server:
+    build: .
+    ports:
+      - "3005:3004"

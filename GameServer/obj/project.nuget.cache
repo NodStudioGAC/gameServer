@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mXJNz7MPVCLATDGdlUFGf7ZEbxWo5oa8M+6H0QlT85FPVOZ01V2+frth14E7DFsA6P0JZpUTHFT2V0/G88r8gw==",
+  "success": true,
+  "projectFilePath": "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+  ],
+  "logs": []
+}
