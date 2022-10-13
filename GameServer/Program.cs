@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.ServerUtils;
+using System;
 
 namespace GameServer
 {
@@ -6,7 +7,8 @@ namespace GameServer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Server started, waiting for some connecttions...\n");
+            new TcpServer(Param.PORT, 10000);
         }
     }
 }
