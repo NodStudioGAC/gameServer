@@ -26,6 +26,7 @@ namespace GameServer.ServerUtils
             _sWriter = new BinaryWriter(_tcpClient.GetStream());
             _sReader = new BinaryReader(_tcpClient.GetStream());
             _handleThread = new Thread(new ThreadStart(_handleClient));
+            _handleThread.Start();
             _connected = true;
         }
         #endregion
