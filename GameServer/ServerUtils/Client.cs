@@ -34,7 +34,7 @@ namespace GameServer.ServerUtils
         {
             while (_connected)
             {
-                try { DataReceiver.Read(_sReader.ReadString()); }
+                try { DataReceiver.Read(this, _sReader.ReadString()); }
                 catch
                 {
                     Disconnect();
