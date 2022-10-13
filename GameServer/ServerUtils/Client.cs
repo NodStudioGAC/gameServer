@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Threading;
 
@@ -32,6 +33,7 @@ namespace GameServer.ServerUtils
         #region HANDLE_CLIENT
         void _handleClient()
         {
+            Console.WriteLine($"Client[{_id}] is connected");
             while (_connected)
             {
                 try { DataReceiver.Read(this, _sReader.ReadString()); }

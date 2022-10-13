@@ -8,7 +8,7 @@ namespace GameServer
         static void Main(string[] args)
         {
             Console.WriteLine("Server started, waiting for some connecttions...\n");
-            new TcpServer(Param.PORT, 10000);
+            new TcpServer(Param.PORT, 1000);
         }
     }
 }
