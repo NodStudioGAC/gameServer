@@ -50,6 +50,7 @@ namespace GameServer.ServerUtils
         #region CLIENT_UTILS
         internal void Disconnect()
         {
+            Console.WriteLine($"Client[{_id}] is disconnected");
             if (_connected)
             {
                 _connected = false;
