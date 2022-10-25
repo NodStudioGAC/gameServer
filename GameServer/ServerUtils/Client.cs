@@ -8,8 +8,8 @@ namespace GameServer.ServerUtils
     class Client
     {
         #region VARIABLES
-        BinaryWriter _sWriter;
-        BinaryReader _sReader;
+        internal BinaryWriter sWriter;
+        internal BinaryReader sReader;
         TcpClient _tcpClient;
         Thread _handleThread;
         TcpServer _tcpServer;
@@ -23,8 +23,8 @@ namespace GameServer.ServerUtils
             _id = id;
             _tcpServer = tcpServer;
             _tcpClient = tcpClient;
-            _sWriter = new BinaryWriter(_tcpClient.GetStream());
-            _sReader = new BinaryReader(_tcpClient.GetStream());
+            sWriter = new BinaryWriter(_tcpClient.GetStream());
+            sReader = new BinaryReader(_tcpClient.GetStream());
             _handleThread = new Thread(new ThreadStart(_handleClient));
             _handleThread.Start();
             _connected = true;
@@ -37,7 +37,7 @@ namespace GameServer.ServerUtils
             Console.WriteLine($"Client[{_id}] is connected");
             while (_connected)
             {
-                try { DataReceiver.Read(this, _sReader.ReadString()); }
+                try { DataReceiver.Read(this, sReader.ReadString()); }
                 catch
                 {
                     Disconnect();
@@ -65,8 +65,8 @@ namespace GameServer.ServerUtils
         {
             try
             {
-                _sWriter.Write(data);
-                _sWriter.Flush();
+                sWriter.Write(data);
+                sWriter.Flush();
             }
             catch { }
         }
@@ -74,8 +74,8 @@ namespace GameServer.ServerUtils
         {
             try
             {
-                _sWriter.Write(data);
-                _sWriter.Flush();
+                sWriter.Write(data);
+                sWriter.Flush();
             }
             catch { }
         }
@@ -83,8 +83,8 @@ namespace GameServer.ServerUtils
         {
             try
             {
-                _sWriter.Write(data);
-                _sWriter.Flush();
+                sWriter.Write(data);
+                sWriter.Flush();
             }
             catch { }
         }
@@ -92,8 +92,8 @@ namespace GameServer.ServerUtils
         {
             try
             {
-                _sWriter.Write(data);
-                _sWriter.Flush();
+                sWriter.Write(data);
+                sWriter.Flush();
             }
             catch { }
         }
@@ -101,8 +101,8 @@ namespace GameServer.ServerUtils
         {
             try
             {
-                _sWriter.Write(data);
-                _sWriter.Flush();
+                sWriter.Write(data);
+                sWriter.Flush();
             }
             catch { }
         }

@@ -14,6 +14,10 @@
                     client.Disconnect();
                     break;
 
+                case "login":
+                    Login.ReadLogin(client);
+                    break;
+
                 default:
                     break;
             }
