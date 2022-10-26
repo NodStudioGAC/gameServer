@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Models;
+using System;
 
 namespace GameServer.ServerUtils
 {
@@ -8,11 +7,11 @@ namespace GameServer.ServerUtils
     {
         internal static void ReadLogin(Client client)
         {
-            Console.WriteLine("ReadLogin");
-
             string login = client.sReader.ReadString();
+            if (Matchmaking.AddPlayer(login, client))
+                client.Write("waitingRoom");
+
             Console.WriteLine(login);
-            client.Write("loginResponse");
         }
     }
 }

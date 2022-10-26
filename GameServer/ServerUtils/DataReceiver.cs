@@ -1,4 +1,6 @@
-﻿namespace GameServer.ServerUtils
+﻿using GameServer.Manager;
+
+namespace GameServer.ServerUtils
 {
     class DataReceiver
     {
@@ -16,6 +18,10 @@
 
                 case "login":
                     Login.ReadLogin(client);
+                    break;
+
+                case "isReady":
+                    GamesManager.StartGames(client);
                     break;
 
                 default:
