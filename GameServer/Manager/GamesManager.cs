@@ -12,7 +12,15 @@ namespace GameServer.Manager
         internal static void CreateNewGame(Player player1, Player player2)
         {
             Console.WriteLine("createGame");
-            createdGames.Add(new Game(player1, player2));
+            Game game = new Game(player1, player2);
+            createdGames.Add(game);
+            foreach (Player player in game.players)
+            {
+                player.client.Write("gameID");
+                player.client.Write(JsonSerializer.Serialize(game.guid));
+            }
+
+
         }
         internal static void StartGames(Client client)
         {
