@@ -55,7 +55,6 @@ namespace Models
                     card.SetOwner(player);
                 }
         }
-
         #endregion
 
         #region UTILS
@@ -75,11 +74,6 @@ namespace Models
             cards.Remove(theCard);
             return theCard;
 
-        }
-        public override string ToString()
-        {
-
-            return base.ToString();
         }
         #endregion
     }
