@@ -1,4 +1,5 @@
 ﻿using GameServer.Manager;
+using System;
 
 namespace GameServer.ServerUtils
 {
@@ -21,6 +22,7 @@ namespace GameServer.ServerUtils
                     break;
 
                 case "isReady":
+                    Console.WriteLine("isReady");
                     GamesManager.StartGames(client);
                     break;
 

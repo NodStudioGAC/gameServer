@@ -23,7 +23,7 @@ namespace GameServer.Manager
                         if (game.started)
                             foreach (Player player in game.players)
                             {
-                                player.client.Write("startGame");
+                                player.client.Write("playGame");
                                 player.client.Write(JsonSerializer.Serialize(game));
                             }
                     
