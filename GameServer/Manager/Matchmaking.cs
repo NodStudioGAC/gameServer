@@ -1,5 +1,6 @@
 ﻿using GameServer.Manager;
 using GameServer.ServerUtils;
+using System;
 
 namespace Models
 {
@@ -16,6 +17,7 @@ namespace Models
             Player newPlayer = new Player(login, client);
             if (!isWaitingPlayer)
             {
+                Console.WriteLine("here");
                 isWaitingPlayer = true;
                 waitingPlayer = newPlayer;
                 return true;
