@@ -6,13 +6,14 @@ namespace Models
 {
     class Matchmaking
     {
-        #region VARIABLES
+        #region STATIC_VARIABLES
         internal static Player waitingPlayer;
         internal static bool isWaitingPlayer;
+        internal enum STATE { WAITING, UNWAITING, MATCH };
         #endregion
 
         #region FUNCTIONS
-        internal static bool AddPlayer(string login, Client client)
+        internal static STATE AddPlayer(string login, Client client)
         {
             Player newPlayer = new Player(login, client);
             if (!isWaitingPlayer)
@@ -20,13 +21,19 @@ namespace Models
                 Console.WriteLine("here");
                 isWaitingPlayer = true;
                 waitingPlayer = newPlayer;
-                return true;
+                return STATE.WAITING;
+            }
+            else if (waitingPlayer == newPlayer)
+            {
+                isWaitingPlayer = false;
+                waitingPlayer = null;
+                return STATE.UNWAITING;
             }
             else
             {
                 isWaitingPlayer = false;
                 GamesManager.CreateNewGame(waitingPlayer, newPlayer);
-                return false;
+                return STATE.MATCH;
             }
 
         }
