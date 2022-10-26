@@ -33,6 +33,7 @@ namespace Models
             {
                 isWaitingPlayer = false;
                 GamesManager.CreateNewGame(waitingPlayer, newPlayer);
+                waitingPlayer.client.Write("startGame");
                 return STATE.MATCH;
             }
 
