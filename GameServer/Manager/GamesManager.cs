@@ -16,10 +16,13 @@ namespace GameServer.Manager
         }
         internal static void StartGames(Client client)
         {
+            Console.WriteLine("startGames");
             string guid = client.sReader.ReadString();
+            Console.WriteLine(guid);
                 foreach(Game game in createdGames)
                     if(game.guid.ToString() == guid)
                     {
+                    Console.WriteLine(game);
                         if (game.started)
                             foreach (Player player in game.players)
                             {
