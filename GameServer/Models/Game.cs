@@ -11,7 +11,8 @@ namespace Models
         internal List<Card> cards;
         internal Player[] players;
         internal int indexPlayerTurn = 0;
-        internal Guid guid = Guid.NewGuid();
+        internal Guid guid;
+        internal bool started = false;
         #endregion
 
         #region CONSTRUCTOR
@@ -22,6 +23,7 @@ namespace Models
                 player1,
                 player2
             };
+            this.guid = Guid.NewGuid();
             InitGame();
         }
         #endregion
@@ -73,6 +75,11 @@ namespace Models
             cards.Remove(theCard);
             return theCard;
 
+        }
+        public override string ToString()
+        {
+
+            return base.ToString();
         }
         #endregion
     }

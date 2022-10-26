@@ -16,8 +16,8 @@ namespace Models
             Player newPlayer = new Player(login, client);
             if (!isWaitingPlayer)
             {
-                waitingPlayer = newPlayer;
                 isWaitingPlayer = true;
+                waitingPlayer = newPlayer;
                 return true;
             }
             else
