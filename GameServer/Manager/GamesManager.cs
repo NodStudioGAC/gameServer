@@ -11,6 +11,7 @@ namespace GameServer.Manager
         internal static List<Game> createdGames = new List<Game>();
         internal static void CreateNewGame(Player player1, Player player2)
         {
+            Console.WriteLine("createGame");
             createdGames.Add(new Game(player1, player2));
         }
         internal static void StartGames(Client client)
