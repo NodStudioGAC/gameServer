@@ -18,6 +18,7 @@ namespace GameServer.Manager
             {
                 player.client.Write("gameID");
                 player.client.Write(JsonSerializer.Serialize(game.guid));
+                Console.WriteLine(JsonSerializer.Serialize(game.guid));
             }
 
 
@@ -26,8 +27,9 @@ namespace GameServer.Manager
         {
             Console.WriteLine("startGames");
             string guid = client.sReader.ReadString();
+            Console.WriteLine("gui");
             Console.WriteLine(guid);
-                foreach(Game game in createdGames)
+            foreach (Game game in createdGames)
                     if(game.guid.ToString() == guid)
                     {
                     Console.WriteLine(game);
