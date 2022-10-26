@@ -10,17 +10,17 @@ namespace GameServer.ServerUtils
         #region VARIABLES
         internal BinaryWriter sWriter;
         internal BinaryReader sReader;
+        internal int id;
         TcpClient _tcpClient;
         Thread _handleThread;
         TcpServer _tcpServer;
         bool _connected;
-        int _id;
         #endregion
 
         #region CONSTRUCTOR
         public Client(TcpServer tcpServer, TcpClient tcpClient, int id)
         {
-            _id = id;
+            this.id = id;
             _tcpServer = tcpServer;
             _tcpClient = tcpClient;
             sWriter = new BinaryWriter(_tcpClient.GetStream());
@@ -34,7 +34,7 @@ namespace GameServer.ServerUtils
         #region HANDLE_CLIENT
         void _handleClient()
         {
-            Console.WriteLine($"Client[{_id}] is connected");
+            Console.WriteLine($"Client[{id}] is connected");
             while (_connected)
             {
                 try { DataReceiver.Read(this, sReader.ReadString()); }
@@ -50,11 +50,11 @@ namespace GameServer.ServerUtils
         #region CLIENT_UTILS
         internal void Disconnect()
         {
-            Console.WriteLine($"Client[{_id}] is disconnected");
+            Console.WriteLine($"Client[{id}] is disconnected");
             if (_connected)
             {
                 _connected = false;
-                _tcpServer.RemoveClient(_id);
+                _tcpServer.RemoveClient(id);
                 try { _handleThread.Abort(); } catch { }
             }
         }

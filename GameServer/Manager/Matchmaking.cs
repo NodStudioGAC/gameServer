@@ -23,7 +23,7 @@ namespace Models
                 waitingPlayer = newPlayer;
                 return STATE.WAITING;
             }
-            else if (waitingPlayer == newPlayer)
+            else if (newPlayer.Equals(waitingPlayer))
             {
                 isWaitingPlayer = false;
                 waitingPlayer = null;

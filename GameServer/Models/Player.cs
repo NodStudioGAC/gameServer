@@ -21,6 +21,15 @@ namespace Models
         }
         #endregion
 
+        #region OVERRIDE
+        public override bool Equals(object obj)
+        {
+            if(obj == null)
+                return false;
 
+            Player otherPlayer = (Player)obj;
+            return playername == otherPlayer.playername && client.id == otherPlayer.client.id;
+        }
+        #endregion
     }
 }
