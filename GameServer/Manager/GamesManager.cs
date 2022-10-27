@@ -26,7 +26,7 @@ namespace GameServer.Manager
         {
             Console.WriteLine("startGames");
             string guid = client.sReader.ReadString();
-            Console.WriteLine("gui");
+            Console.WriteLine("guid");
             Console.WriteLine(guid);
             foreach (Game game in createdGames)
             {
@@ -39,7 +39,24 @@ namespace GameServer.Manager
                             {
                                 Console.WriteLine("ready");
                                 player.client.Write("playGame");
-                                player.client.Write(JsonSerializer.Serialize(game));
+                                player.client.Write(game.indexPlayerTurn);
+                                foreach(Player playerInGame in game.players)
+                                {
+                                    player.client.Write(playerInGame.playername);
+                                    player.client.Write(playerInGame.client.id);
+
+                                    foreach (Card card in playerInGame.cards)
+                                    {
+                                        player.client.Write("card");
+                                        player.client.Write(card.value);
+                                        player.client.Write(card.sign.ToString());
+                                        player.client.Write(card.owner.client.id);
+                                    }
+                                    player.client.Write("endcard");
+                                }
+
+                            }
+                                    
                             }
                     
                         else
