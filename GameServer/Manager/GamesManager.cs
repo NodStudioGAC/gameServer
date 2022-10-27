@@ -17,7 +17,7 @@ namespace GameServer.Manager
             foreach (Player player in game.players)
             {
                 player.client.Write("gameID");
-                player.client.Write(JsonSerializer.Serialize(game.guid));
+                player.client.Write(game.guid.ToString());
             }
         }
         internal static void StartGames(Client client)
