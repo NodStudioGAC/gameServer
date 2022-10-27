@@ -29,6 +29,7 @@ namespace GameServer.Manager
             Console.WriteLine(guid);
             foreach (Game game in createdGames)
             {
+                Console.WriteLine(createdGames.Count);
                 Console.WriteLine("game.guid.ToString()");
                 Console.WriteLine(game.guid.ToString());
                 if (game.guid.ToString() == guid)
@@ -41,8 +42,8 @@ namespace GameServer.Manager
 
                     else
                         game.started = true;
+                    break;
                 }
-                break;
             }
         }
     }
