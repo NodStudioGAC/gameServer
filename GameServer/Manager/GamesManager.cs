@@ -60,8 +60,8 @@ namespace GameServer.Manager
                             game.started = true;
 
                         break;
-                    }
             }
         }
     }
 }
+
