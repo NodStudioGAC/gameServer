@@ -46,12 +46,17 @@ namespace GameServer.Manager
 
                                 foreach (Card card in playerInGame.cards)
                                     {
-                                        player.client.Write("card"); 
+                                        player.client.Write("playercard"); 
                                         player.client.Write(card.value);
                                         player.client.Write(card.sign.ToString());
                                         player.client.Write(card.owner.client.id);
                                     }
-                                    player.client.Write("endcard");
+                                }
+                                foreach(Card card in game.cards)
+                                {
+                                    player.client.Write("card");
+                                    player.client.Write(card.value);
+                                    player.client.Write(card.sign.ToString());
                                 }
 
                             }
