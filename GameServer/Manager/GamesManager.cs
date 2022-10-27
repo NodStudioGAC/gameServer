@@ -31,7 +31,7 @@ namespace GameServer.Manager
                 Console.WriteLine(game);
                     if(game.guid.ToString() == guid)
                     {
-                        Console.WriteLine(game);
+                        Console.WriteLine(game.started);
                         if (game.started)
                             foreach (Player player in game.players)
                             {
@@ -60,11 +60,10 @@ namespace GameServer.Manager
                                 }
 
                             }
-                    }
-                    
+
                         else
                             game.started = true;
-
+                    }
                         break;
             }
         }
