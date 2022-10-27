@@ -31,6 +31,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(card.value);
                 player.client.Write(card.sign.ToString());
             }
+            Console.WriteLine("end");
             player.client.Write("end");
         }
     }
