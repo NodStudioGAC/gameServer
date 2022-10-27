@@ -19,8 +19,6 @@ namespace GameServer.Manager
                 player.client.Write("gameID");
                 player.client.Write(JsonSerializer.Serialize(game.guid));
             }
-
-
         }
         internal static void StartGames(Client client)
         {
@@ -33,7 +31,7 @@ namespace GameServer.Manager
                 Console.WriteLine(game);
                     if(game.guid.ToString() == guid)
                     {
-                    Console.WriteLine(game);
+                        Console.WriteLine(game);
                         if (game.started)
                             foreach (Player player in game.players)
                             {
@@ -47,7 +45,7 @@ namespace GameServer.Manager
 
                                     foreach (Card card in playerInGame.cards)
                                     {
-                                        player.client.Write("card");
+                                        player.client.Write("card"); 
                                         player.client.Write(card.value);
                                         player.client.Write(card.sign.ToString());
                                         player.client.Write(card.owner.client.id);
@@ -56,8 +54,7 @@ namespace GameServer.Manager
                                 }
 
                             }
-                                    
-                            }
+                    }
                     
                         else
                             game.started = true;
