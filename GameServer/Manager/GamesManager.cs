@@ -38,7 +38,11 @@ namespace GameServer.Manager
                     Console.WriteLine(game.started);
                     if (game.started)
                         foreach (Player player in game.players)
+                        {
+                            Console.WriteLine("player");
+                            Console.WriteLine(player.playername);
                             GameSender.SendInitGame(game, player);
+                        }
 
                     else
                         game.started = true;
