@@ -42,8 +42,9 @@ namespace GameServer.Manager
                                 {
                                     player.client.Write(playerInGame.playername);
                                     player.client.Write(playerInGame.client.id);
+                                    player.client.Write(playerInGame.client.id == player.client.id);
 
-                                    foreach (Card card in playerInGame.cards)
+                                foreach (Card card in playerInGame.cards)
                                     {
                                         player.client.Write("card"); 
                                         player.client.Write(card.value);
