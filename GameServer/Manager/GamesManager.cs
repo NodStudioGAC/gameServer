@@ -28,11 +28,13 @@ namespace GameServer.Manager
             Console.WriteLine(guid);
             foreach (Game game in createdGames)
             {
-                Console.WriteLine(game);
-                    if(game.guid.ToString() == guid)
+                Console.WriteLine("game.guid.ToString()");
+                Console.WriteLine(game.guid.ToString());
+                if (game.guid.ToString() == guid)
                     {
+                        Console.WriteLine("game.started");
                         Console.WriteLine(game.started);
-                        if (game.started)
+                    if (game.started)
                             foreach (Player player in game.players)
                             {
                                 Console.WriteLine("ready");
