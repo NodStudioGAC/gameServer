@@ -24,6 +24,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
                     player.client.Write(card.value);
                     player.client.Write(card.sign.ToString());
                 }
+                player.client.Write("end");
             }
             foreach (Card card in game.cards)
             {
