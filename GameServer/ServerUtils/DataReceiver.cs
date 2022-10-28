@@ -22,7 +22,6 @@ namespace GameServer.ServerUtils
                     break;
 
                 case "isReady":
-                    Console.WriteLine("isReady");
                     GamesManager.StartGames(client);
                     break;
 

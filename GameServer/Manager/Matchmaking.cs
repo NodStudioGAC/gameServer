@@ -18,7 +18,6 @@ namespace Models
             Player newPlayer = new Player(login, client);
             if (!isWaitingPlayer)
             {
-                Console.WriteLine("here");
                 isWaitingPlayer = true;
                 waitingPlayer = newPlayer;
                 return STATE.WAITING;

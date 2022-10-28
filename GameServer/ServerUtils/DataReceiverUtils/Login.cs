@@ -22,7 +22,6 @@ namespace GameServer.ServerUtils
                     break;
 
             }
-            Console.WriteLine(login);
         }
     }
 }
