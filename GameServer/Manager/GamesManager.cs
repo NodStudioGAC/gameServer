@@ -39,6 +39,7 @@ namespace GameServer.Manager
         {
             Console.WriteLine("disconnected");
             Console.WriteLine(client);
+
             foreach (Game game in createdGames)
                 foreach(Player player in game.players)
                     if(player.client.id == client.id)
