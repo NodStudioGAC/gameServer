@@ -78,6 +78,7 @@ namespace GameServer.Manager
                 foreach(Player playerInGame in game.players)
                     if(playerInGame.client.id != client.id)
                     {
+                        playerInGame.client.Write("action");
                         playerInGame.client.Write($"{action}");
                         switch (action)
                         {
