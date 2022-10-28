@@ -35,7 +35,7 @@ namespace GameServer.Manager
                 }
         }
 
-        internal static void EndGames(Client client)
+        internal static void EndGame(Client client)
         {
             Console.WriteLine("disconnected");
             Console.WriteLine(client);

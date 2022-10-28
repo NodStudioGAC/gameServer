@@ -1,4 +1,5 @@
 ﻿using GameServer.Manager;
+using GameServer.ServerUtils.DataReceiverUtils;
 using System;
 
 namespace GameServer.ServerUtils
@@ -14,7 +15,7 @@ namespace GameServer.ServerUtils
                     break;
 
                 case "disconnection":
-                    client.Disconnect();
+                    Disconnection.EndGame(client);
                     break;
 
                 case "login":

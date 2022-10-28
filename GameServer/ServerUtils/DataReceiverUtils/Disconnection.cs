@@ -11,7 +11,7 @@ namespace GameServer.ServerUtils.DataReceiverUtils
         internal static void EndGame(Client client)
         {
             client.Disconnect();
-            GamesManager.EndGames(client);
+            GamesManager.EndGame(client);
         }
 
     }
