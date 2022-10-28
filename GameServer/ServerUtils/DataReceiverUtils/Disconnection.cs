@@ -10,8 +10,10 @@ namespace GameServer.ServerUtils.DataReceiverUtils
 
         internal static void EndGame(Client client)
         {
-            client.Disconnect();
+            Console.WriteLine("start endgame");
+            Console.WriteLine(client);
             GamesManager.EndGame(client);
+            client.Disconnect();
         }
 
     }
