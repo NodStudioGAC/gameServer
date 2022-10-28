@@ -8,7 +8,10 @@ namespace GameServer.Manager
 {
     class GamesManager
     {
+        #region VARIABLES
         internal static List<Game> createdGames = new List<Game>();
+        #endregion
+        #region FUNCTIONS
         internal static void CreateNewGame(Player player1, Player player2)
         {
             Game game = new Game(player1, player2);
@@ -51,6 +54,71 @@ namespace GameServer.Manager
                         break;
                     }
         }
+
+        internal static void SetGameStep(Client client, string currentStep)
+        {
+
+            Game game = SearchClientStartedGame(client);
+            if(game != null)
+                if (game.step == currentStep)
+                {
+                    foreach (Player playerInGame in game.players)
+                        playerInGame.client.Write("playersWatchedTheirCards");
+                }
+                else
+                    game.step = currentStep;
+                                
+        }
+
+        internal static void ReceiveAction(Client client)
+        {
+            Game game = SearchClientStartedGame(client);
+            string action = client.sReader.ReadString();
+            if(game != null)
+                foreach(Player playerInGame in game.players)
+                    if(playerInGame.client.id != client.id)
+                    {
+                        playerInGame.client.Write($"{action}");
+                        switch (action)
+                        {
+                            case "playACard":
+                                playerInGame.client.Write(client.sReader.ReadInt32());
+                                break;
+
+                            case "sameCard":
+                                playerInGame.client.Write(client.sReader.ReadInt32());
+                                break;
+
+                            case "swapPower":
+                                playerInGame.client.Write(client.sReader.ReadInt32());
+                                playerInGame.client.Write(client.sReader.ReadInt32());
+                                break;
+
+                            case "seePower":
+                                playerInGame.client.Write(client.sReader.ReadInt32());
+                                playerInGame.client.Write(client.sReader.ReadBoolean());
+                                break;
+                        }
+                    }
+
+        }
+        #endregion
+
+        #region UTILS
+        internal static Game SearchClientStartedGame(Client client)
+        {
+            foreach (Game game in createdGames)
+                if (game.started)
+                    foreach (Player player in game.players)
+                        if (player.client.id == client.id)
+                        {
+                            return game;
+                        }
+            return null;
+        }
+        #endregion
+
     }
+
 }
 

@@ -26,6 +26,14 @@ namespace GameServer.ServerUtils
                     GamesManager.StartGames(client);
                     break;
 
+                case "watchedTheirCards":
+                    GamesManager.SetGameStep(client, "watchedTheirCards");
+                    break;
+
+                case "action":
+                    GamesManager.ReceiveAction(client);
+                    break;
+
                 default:
                     break;
             }

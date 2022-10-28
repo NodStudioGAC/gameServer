@@ -13,6 +13,7 @@ namespace Models
         internal int indexPlayerTurn = 0;
         internal Guid guid;
         internal bool started = false;
+        internal string step = "";
         #endregion
 
         #region CONSTRUCTOR
