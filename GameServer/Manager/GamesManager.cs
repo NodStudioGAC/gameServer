@@ -1,6 +1,7 @@
 ﻿using GameServer.ServerUtils;
 using GameServer.ServerUtils.DataSenderUtils;
 using Models;
+using System;
 using System.Collections.Generic;
 
 namespace GameServer.Manager
@@ -36,6 +37,7 @@ namespace GameServer.Manager
 
         internal static void EndGames(Client client)
         {
+            Console.WriteLine("disconnected");
             foreach(Game game in createdGames)
                 foreach(Player player in game.players)
                     if(player.client.id == client.id)
