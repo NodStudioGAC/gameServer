@@ -58,7 +58,9 @@ namespace GameServer.ServerUtils.DataSenderUtils
             switch (action)
             {
                 case "playACard":
-                    client.Write(client.sReader.ReadInt32());
+                    int index = client.sReader.ReadInt32();
+                    Console.WriteLine(index);
+                    client.Write(index);
                     break;
 
                 case "sameCard":
