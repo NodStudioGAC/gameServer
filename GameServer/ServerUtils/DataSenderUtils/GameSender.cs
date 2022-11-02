@@ -47,7 +47,6 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             client.Write("OtherPlayerCard");
             SendCard(client, card);
-
         }
 
         internal static void SendAction(Client client, string action)
@@ -55,6 +54,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
 
             client.Write("action");
             client.Write($"{action}");
+            Console.WriteLine(action);
             switch (action)
             {
                 case "playACard":
