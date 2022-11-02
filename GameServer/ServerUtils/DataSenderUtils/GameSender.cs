@@ -53,7 +53,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
 
             client.Write("action");
-            client.Write($"{action}");
+            client.Write(action);
             Console.WriteLine(action);
             switch (action)
             {
