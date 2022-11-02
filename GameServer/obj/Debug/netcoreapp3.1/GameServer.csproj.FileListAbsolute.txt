@@ -1,0 +1,14 @@
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.exe
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.deps.json
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.json
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.dev.json
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.dll
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.pdb
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.AssemblyReference.cache
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfoInputs.cache
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfo.cs
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CoreCompileInputs.cache
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
+C:\Users\gauti\Documents\GitHub\gameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache

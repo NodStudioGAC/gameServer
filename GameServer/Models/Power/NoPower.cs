@@ -6,8 +6,10 @@ namespace GameServer.Models.Power
     public class NoPower : AbstractPower
     {
         #region ACTION
-        internal override void Action(Game game, Client client)
+
+        internal override void Action(Client client)
         {
+            throw new System.NotImplementedException();
         }
         #endregion
     }
