@@ -18,8 +18,12 @@ namespace GameServer.Manager
             createdGames.Add(game);
             foreach (Player player in game.players)
             {
+                // A METTRE DANS DATASENDER
+
                 player.client.Write("gameID");
                 player.client.Write(game.guid.ToString());
+
+                // -------------------------
             }
         }
         internal static void StartGames(Client client)
@@ -49,7 +53,13 @@ namespace GameServer.Manager
                     {
                         game.started = false;
                         foreach (Player playerInGame in game.players)
+                        {
+                            // A METTRE DANS DATASENDER
+
                             playerInGame.client.Write("endGame");
+
+                            // -------------------------
+                        }
 
                         break;
                     }
@@ -63,7 +73,13 @@ namespace GameServer.Manager
                 if (game.step == currentStep)
                 {
                     foreach (Player playerInGame in game.players)
+                    {
+                        // A METTRE DANS DATASENDER
+
                         playerInGame.client.Write("playersWatchedTheirCards");
+
+                        // -------------------------
+                    }
                 }
                 else
                     game.step = currentStep;
@@ -78,6 +94,8 @@ namespace GameServer.Manager
                 foreach(Player playerInGame in game.players)
                     if(playerInGame.client.id != client.id)
                     {
+                        // A METTRE DANS DATASENDER
+
                         playerInGame.client.Write("action");
                         playerInGame.client.Write($"{action}");
                         switch (action)
@@ -100,6 +118,8 @@ namespace GameServer.Manager
                                 playerInGame.client.Write(client.sReader.ReadBoolean());
                                 break;
                         }
+
+                        // -------------------------
                     }
 
         }
