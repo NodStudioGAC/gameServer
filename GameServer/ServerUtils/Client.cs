@@ -15,6 +15,7 @@ namespace GameServer.ServerUtils
         Thread _handleThread;
         TcpServer _tcpServer;
         bool _connected;
+        internal string gameID;
         #endregion
 
         #region CONSTRUCTOR

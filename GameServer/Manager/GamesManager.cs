@@ -17,7 +17,10 @@ namespace GameServer.Manager
             Game game = new Game(player1, player2);
             createdGames.Add(game);
             foreach (Player player in game.players)
+            {
+                player.client.gameID = game.guid.ToString();
                 GameSender.SendGameID(player.client, game.guid.ToString());
+            }
         }
         internal static void StartGames(Client client)
         {
@@ -129,12 +132,8 @@ namespace GameServer.Manager
         internal static Game SearchClientStartedGame(Client client)
         {
             foreach (Game game in createdGames)
-                if (game.started)
-                    foreach (Player player in game.players)
-                        if (player.client.id == client.id)
-                        {
-                            return game;
-                        }
+                if (game.started && client.gameID == game.guid.ToString())
+                    return game;
             return null;
         }
 
