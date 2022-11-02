@@ -14,6 +14,8 @@ namespace Models
         internal Guid guid;
         internal bool started = false;
         internal string step = "";
+        internal Card[] binCards;
+        internal int binCardsLength;
         #endregion
 
         #region CONSTRUCTOR
@@ -25,6 +27,8 @@ namespace Models
                 player2
             };
             this.guid = Guid.NewGuid();
+            binCards = new Card[GameDatas.NUMBER_OF_CARDS];
+            binCardsLength = 0;
             InitGame();
         }
         #endregion
@@ -55,6 +59,13 @@ namespace Models
                     Card card = GetFromList(randomNum);
                     card.SetOwner(player);
                 }
+        }
+
+        internal Card GetStockCard()
+        {
+            Random random = new Random();
+            int randomNum = random.Next(0, cards.Count);
+            return GetFromList(randomNum);
         }
         #endregion
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GameServer.Models.Power;
 
 namespace Models
 {
@@ -14,6 +12,7 @@ namespace Models
         internal int value;
         internal SIGN sign;
         internal Player owner;
+        internal AbstractPower power;
         #endregion
 
         #region CONSTRUCTOR

@@ -33,6 +33,12 @@ namespace GameServer.ServerUtils
                 case "action":
                     GamesManager.ReceiveAction(client);
                     break;
+                case "newStockCard":
+                    GamesManager.CreateNewStockCard(client);
+                    break;
+                case "binCard":
+                    GamesManager.ReceiveBinCard(client);
+                    break;
 
                 default:
                     break;
