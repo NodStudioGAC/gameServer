@@ -59,8 +59,11 @@ namespace GameServer.ServerUtils.DataSenderUtils
             {
                 case "playACard":
                     int index = client.sReader.ReadInt32();
+                    int index2 = client.sReader.ReadInt32();
                     Console.WriteLine("index playcard");
                     Console.WriteLine(index);
+                    Console.WriteLine("index2 playcard");
+                    Console.WriteLine(index2);
                     client.Write(index);
                     break;
 
