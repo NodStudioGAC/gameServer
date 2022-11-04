@@ -89,6 +89,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
         internal static void SendBinCard(Client client, Card card)
         {
             client.Write("binCard");
+            Console.WriteLine("sendbincard");
             SendCard(client, card);
         }
         internal static void SendHaveAPower(Client client, string power)

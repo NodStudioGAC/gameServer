@@ -39,6 +39,7 @@ namespace GameServer.ServerUtils
                     break;
 
                 case "binCard":
+                    Console.WriteLine("receivebincard");
                     GamesManager.ReceiveBinCard(client);
                     break;
 
