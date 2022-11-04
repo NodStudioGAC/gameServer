@@ -77,7 +77,7 @@ namespace GameServer.Manager
                 {
                     case "playACard":
                         int indexPlayCard = client.sReader.ReadInt32();
-                       GameSender.SendPlayCard(game, indexPlayCard);
+                       GameSender.SendPlayCard(client, game, indexPlayCard);
                         break;
 
                     case "sameCard":
