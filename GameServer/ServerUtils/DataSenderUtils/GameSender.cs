@@ -49,13 +49,14 @@ namespace GameServer.ServerUtils.DataSenderUtils
             SendCard(client, card);
         }
 
-        internal static void SendPlayCard(Game game, int index)
+        internal static void SendPlayCard(Client client, Game game, int index)
         {
             foreach (Player player in game.players)
             {
                 player.client.Write("action");
                 player.client.Write("playACard");
                 player.client.Write(index);
+                player.client.Write(client.id == player.client.id);
             }
         }
 
