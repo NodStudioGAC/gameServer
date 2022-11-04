@@ -64,6 +64,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
                     Console.WriteLine(index);
                     Console.WriteLine("index2 playcard");
                     Console.WriteLine(index2);
+                    Console.WriteLine(client.id);
                     client.Write(index);
                     break;
 
