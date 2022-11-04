@@ -42,6 +42,10 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             client.Write("playersWatchedTheirCards");
         }
+        internal static void SendCanPlaySameCardTurn(Client client)
+        {
+            client.Write("canPlaySameCardTurn");
+        }
 
         internal static void SendOtherPlayerCards(Client client, Card card)
         {

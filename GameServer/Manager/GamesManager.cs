@@ -67,6 +67,14 @@ namespace GameServer.Manager
                     game.step = currentStep;
         }
 
+        internal static void SetPlaySameCard(Client client)
+        {
+            Game game = SearchClientStartedGame(client);
+            if(game != null)
+                foreach(Player playerInGame in game.players)
+                    GameSender.SendCanPlaySameCardTurn(playerInGame.client);
+        }
+
         internal static void ReceiveAction(Client client)
         {
             Game game = SearchClientStartedGame(client);
@@ -139,6 +147,7 @@ namespace GameServer.Manager
             List<int> indexList = new List<int>();
             while (client.sReader.ReadString() == "cardIndex")
                 indexList.Add(client.sReader.ReadInt32());
+
             Game game = SearchClientStartedGame(client);
             if(game != null){
                 foreach (Player playerInGame in game.players)
