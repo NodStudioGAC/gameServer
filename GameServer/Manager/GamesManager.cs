@@ -85,6 +85,7 @@ namespace GameServer.Manager
         internal static void ReceiveBinCard(Client client)
         {
             int index = client.sReader.ReadInt32();
+            Console.WriteLine("index");
             Console.WriteLine(index);
             Game currentGame;
             Card card = null;
