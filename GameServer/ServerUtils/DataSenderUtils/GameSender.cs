@@ -49,40 +49,14 @@ namespace GameServer.ServerUtils.DataSenderUtils
             SendCard(client, card);
         }
 
-        internal static void SendAction(Client client, string action)
+        internal static void SendPlayCard(Game game, int index)
         {
-
-            client.Write("action");
-            client.Write(action);
-            Console.WriteLine(action);
-            switch (action)
+            foreach (Player player in game.players)
             {
-                case "playACard":
-                    int index = client.sReader.ReadInt32();
-                    int index2 = client.sReader.ReadInt32();
-                    Console.WriteLine("index playcard");
-                    Console.WriteLine(index);
-                    Console.WriteLine("index2 playcard");
-                    Console.WriteLine(index2);
-                    Console.WriteLine(client.id);
-                    client.Write(index);
-                    break;
-
-                case "sameCard":
-                    client.Write(client.sReader.ReadInt32());
-                    break;
-
-                case "swapPower":
-                    client.Write(client.sReader.ReadInt32());
-                    client.Write(client.sReader.ReadInt32());
-                    break;
-
-                case "seePower":
-                    client.Write(client.sReader.ReadInt32());
-                    client.Write(client.sReader.ReadBoolean());
-                    break;
+                player.client.Write("action");
+                player.client.Write("playACard");
+                player.client.Write(index);
             }
-
         }
 
         internal static void SendNewStockCard(Client client, Card card)

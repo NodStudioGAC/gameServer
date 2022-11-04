@@ -72,9 +72,31 @@ namespace GameServer.Manager
             Game game = SearchClientStartedGame(client);
             string action = client.sReader.ReadString();
             if(game != null)
-                foreach(Player playerInGame in game.players)
-                    if(playerInGame.client.id != client.id)
-                        GameSender.SendAction(playerInGame.client, action);
+            {
+                switch (action)
+                {
+                    case "playACard":
+                        int indexPlayCard = client.sReader.ReadInt32();
+                       GameSender.SendPlayCard(game, indexPlayCard);
+                        break;
+
+                    case "sameCard":
+                        int indexSameCard = client.sReader.ReadInt32();
+                        break;
+
+                    case "swapPower":
+                        int indexSwapPower1 = client.sReader.ReadInt32();
+                        int indexSwapPower2 = client.sReader.ReadInt32();
+                        break;
+
+                    case "seePower":
+                        int indexSeePower = client.sReader.ReadInt32();
+                        bool boolSeePower = client.sReader.ReadBoolean();
+                        break;
+                }
+            
+            }
+
         }
         internal static void CreateNewStockCard(Client client)
         {
@@ -149,18 +171,6 @@ namespace GameServer.Manager
                             return player.cards[index];
                         }
             return null;
-        }
-        
-        internal static void UpdateDeck(Client client, int index, Card card)
-        {
-            Game game = SearchClientStartedGame(client);
-            foreach(Player player in game.players)
-            {
-                if (player.client.id == client.id)
-                {
-                    
-                }
-            }
         }
 
         #endregion
