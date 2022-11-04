@@ -85,6 +85,7 @@ namespace GameServer.Manager
         internal static void ReceiveBinCard(Client client)
         {
             int index = client.sReader.ReadInt32();
+            Console.WriteLine(index);
             Game currentGame;
             Card card = null;
             foreach (Game game in createdGames)
@@ -106,8 +107,8 @@ namespace GameServer.Manager
         {
             foreach(Player player in game.players)
             {
-                card.power.Action(currentPlayer.client);
                 GameSender.SendBinCard(player.client, card);
+                card.power.Action(currentPlayer.client);
             }
         }
         internal static void SendOtherPlayerCards(Client client)
