@@ -88,7 +88,7 @@ namespace GameServer.Manager
             Console.WriteLine("index");
             Console.WriteLine(index);
             Game currentGame;
-            Card card = null;
+            Card card;
             foreach (Game game in createdGames)
                 if (game.started)
                     foreach (Player player in game.players)
@@ -96,21 +96,21 @@ namespace GameServer.Manager
                         {
                             currentGame = game;
                             card = player.cards[index];
+                            card?.owner?.cards.Remove(card);
+                            card.owner = null;
                             SendBinCard(game, player, card);
                             break;
                         }
 
-            card?.owner?.cards.Remove(card);
-            card.owner = null;
+           
         }
 
         internal static void SendBinCard(Game game, Player currentPlayer, Card card)
         {
             foreach(Player player in game.players)
-            {
                 GameSender.SendBinCard(player.client, card);
-                card.power.Action(currentPlayer.client);
-            }
+
+            card.power.Action(currentPlayer.client);
         }
         internal static void SendOtherPlayerCards(Client client)
         {
