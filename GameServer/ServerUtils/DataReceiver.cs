@@ -8,6 +8,7 @@ namespace GameServer.ServerUtils
     {
         internal static void Read(Client client, string data)
         {
+            Console.WriteLine($"receive data: {data}");
             switch (data)
             {
                 case "keep connection":
@@ -39,7 +40,6 @@ namespace GameServer.ServerUtils
                     break;
 
                 case "binCard":
-                    Console.WriteLine("receivebincard");
                     GamesManager.ReceiveBinCard(client);
                     break;
 
