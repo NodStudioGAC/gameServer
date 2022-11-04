@@ -60,10 +60,13 @@ namespace GameServer.ServerUtils.DataSenderUtils
             }
         }
 
-        internal static void SendNewStockCard(Client client, Card card)
+        internal static void SendNewStockCard(Game game, Card card)
         {
-            client.Write("newStockCard");
-            SendCard(client, card);
+            foreach (Player player in game.players)
+            {
+                player.client.Write("newStockCard");
+                SendCard(player.client, card);
+            }
         }
         internal static void SendBinCard(Client client, Card card)
         {
