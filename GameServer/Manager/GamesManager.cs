@@ -102,7 +102,7 @@ namespace GameServer.Manager
         {
             Game game = SearchClientStartedGame(client);
             Card newStockCard = game.GetStockCard();
-            GameSender.SendNewStockCard(client, newStockCard);
+            GameSender.SendNewStockCard(game, newStockCard);
         }
         internal static void ReceiveBinCard(Client client)
         {
