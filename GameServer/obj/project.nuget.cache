@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qBCIXFw4RutzDcSfUjEH4baTYHdA9TaC+asjc+nXXFCGotToW0P1O6/CsPMQPPRZ6xa41Dphtbz2wFJokDRDvA==",
+  "dgSpecHash": "ZwYBiLL2SUBZ6/gcH6l0hxtuptLyWP55HtSI9haft+EzHFJUb6VeKnJwa7GfKyF5tH2KDXZVBrpz1V6TjuG3WQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\GameServer.csproj",
+  "projectFilePath": "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\gauti\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+    "C:\\Users\\Alexi\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
   ],
   "logs": []
 }
