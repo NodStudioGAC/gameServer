@@ -165,21 +165,21 @@ namespace GameServer.Manager
                 if(player.client.id == client.id)
                 {
                     cardPlayed = player.cards[indexSameCard];
-                    SendSameCard(currentBinCard, cardPlayed, game);
+                    SendSameCard(currentBinCard, cardPlayed, indexSameCard, game);
                     break;
                 }
             }
 
         }
-        internal static void SendSameCard(Card binCard, Card playerCard, Game game)
+        internal static void SendSameCard(Card binCard, Card playerCard, int indexPlayerCard, Game game)
         {
 
             foreach(Player player in game.players)
             {
                 if (binCard.value == playerCard.value)
-                    GameSender.SendPlaySameCard(game, true);
+                    GameSender.SendPlaySameCard(player.client, indexPlayerCard, true);
                 else
-                    GameSender.SendPlaySameCard(game, false);
+                    GameSender.SendPlaySameCard(player.client, indexPlayerCard, false);
             }
         }
         #endregion
