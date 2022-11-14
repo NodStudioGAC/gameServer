@@ -157,6 +157,7 @@ namespace GameServer.Manager
         }
         internal static void PlaySameCard(Client client, Game game, int indexSameCard)
         {
+            Console.WriteLine("playSameCard");
             Card currentBinCard = game.binCards[game.binCardsLength - 1];
             foreach(Player player in game.players)
             {
@@ -164,14 +165,9 @@ namespace GameServer.Manager
                 {
 
                     if(currentBinCard.value == player.cards[indexSameCard].value)
-                    {
                         GameSender.SendPlaySameCard(game, true);
-                    }
                     else
-                    {
                         GameSender.SendPlaySameCard(game, false);
-                    }
-                break;
                 }
             }
         }
