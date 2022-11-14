@@ -11,6 +11,7 @@ namespace GameServer.Manager
         #region VARIABLES
         internal static List<Game> createdGames = new List<Game>();
         #endregion
+
         #region FUNCTIONS
         internal static void CreateNewGame(Player player1, Player player2)
         {
@@ -37,7 +38,6 @@ namespace GameServer.Manager
                     break;
                 }
         }
-
         internal static void EndGame(Client client)
         {
             Console.WriteLine("disconnected");
@@ -54,7 +54,6 @@ namespace GameServer.Manager
                         break;
                     }
         }
-
         internal static void SetGameStep(Client client, string currentStep)
         {
             Game game = SearchClientStartedGame(client);
@@ -66,7 +65,6 @@ namespace GameServer.Manager
                 else
                     game.step = currentStep;
         }
-
         internal static void SetPlaySameCard(Client client)
         {
             Game game = SearchClientStartedGame(client);
@@ -74,13 +72,11 @@ namespace GameServer.Manager
                 foreach(Player playerInGame in game.players)
                     GameSender.SendCanPlaySameCardTurn(playerInGame.client);
         }
-
         internal static void ReceiveAction(Client client)
         {
             Game game = SearchClientStartedGame(client);
             string action = client.sReader.ReadString();
             if(game != null)
-            {
                 switch (action)
                 {
                     case "playACard":
@@ -103,7 +99,6 @@ namespace GameServer.Manager
                         break;
                 }
             
-            }
 
         }
         internal static void CreateNewStockCard(Client client)
@@ -131,10 +126,7 @@ namespace GameServer.Manager
                             SendBinCard(game, player, card);
                             break;
                         }
-
-           
         }
-
         internal static void SendBinCard(Game game, Player currentPlayer, Card card)
         {
             foreach(Player player in game.players)
@@ -149,17 +141,13 @@ namespace GameServer.Manager
                 indexList.Add(client.sReader.ReadInt32());
 
             Game game = SearchClientStartedGame(client);
-            if(game != null){
+            if(game != null)
                 foreach (Player playerInGame in game.players)
                     if (playerInGame.client.id != client.id)
                         foreach(int index in indexList)
                             GameSender.SendOtherPlayerCards(client, playerInGame.cards[index]);
-            }
         }
-
         #endregion
-
-
 
         #region UTILS
         internal static Game SearchClientStartedGame(Client client)
@@ -169,19 +157,16 @@ namespace GameServer.Manager
                     return game;
             return null;
         }
-
         internal static Card SearchPlayerCard(Client client, int index)
         {
             foreach (Game game in createdGames)
                 if (game.started)
                     foreach (Player player in game.players)
                         if (player.client.id == client.id)
-                        {
                             return player.cards[index];
-                        }
+
             return null;
         }
-
         #endregion
 
     }
