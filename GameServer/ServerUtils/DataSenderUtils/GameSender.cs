@@ -60,15 +60,11 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(client.id == player.client.id);
             }
         }
-        internal static void SendPlaySameCard(Client client, Game game, int index)
+        internal static void SendPlaySameCard(Client client,  int index)
         {
-            foreach (Player player in game.players)
-            {
-                player.client.Write("action");
-                player.client.Write("sameCard");
-                player.client.Write(index);
-                player.client.Write(client.id == player.client.id);
-            }
+                client.Write("action");
+                client.Write("sameCard");
+                client.Write(index);
         }
         internal static void SendNewStockCard(Game game, Card card)
         {

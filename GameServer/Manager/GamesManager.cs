@@ -159,16 +159,27 @@ namespace GameServer.Manager
         {
             Console.WriteLine("playSameCard");
             Card currentBinCard = game.binCards[game.binCardsLength - 1];
+            Card cardPlayed = null;
             foreach(Player player in game.players)
             {
                 if(player.client.id == client.id)
                 {
-
-                    if(currentBinCard.value == player.cards[indexSameCard].value)
-                        GameSender.SendPlaySameCard(game, true);
-                    else
-                        GameSender.SendPlaySameCard(game, false);
+                    cardPlayed = player.cards[indexSameCard];
+                    SendSameCard(currentBinCard, cardPlayed, game);
+                    break;
                 }
+            }
+
+        }
+        internal static void SendSameCard(Card binCard, Card playerCard, Game game)
+        {
+
+            foreach(Player player in game.players)
+            {
+                if (binCard.value == playerCard.value)
+                    GameSender.SendPlaySameCard(game, true);
+                else
+                    GameSender.SendPlaySameCard(game, false);
             }
         }
         #endregion
