@@ -162,6 +162,8 @@ namespace GameServer.Manager
             Console.WriteLine("playSameCard");
             Console.WriteLine(game);
             Console.WriteLine(indexSameCard);
+            Console.WriteLine(game.binCards);
+            Console.WriteLine(game.binCardsLength);
             Card currentBinCard = game.binCards[game.binCardsLength - 1];
             Console.WriteLine(currentBinCard);
             Card cardPlayed = null;
