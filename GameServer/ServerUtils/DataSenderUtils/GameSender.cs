@@ -83,7 +83,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
             client.Write("power");
             client.Write($"{power}");
         }
-        internal static void SendHaveNoPower(Client client, string power)
+        internal static void SendHaveNoPower(Client client)
         {
             client.Write("power");
             client.Write("noPower");

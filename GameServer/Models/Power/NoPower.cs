@@ -1,4 +1,5 @@
 ﻿using GameServer.ServerUtils;
+using GameServer.ServerUtils.DataSenderUtils;
 using Models;
 
 namespace GameServer.Models.Power
@@ -9,7 +10,8 @@ namespace GameServer.Models.Power
 
         internal override void Action(Client client)
         {
-            throw new System.NotImplementedException();
+            GameSender.SendHaveNoPower(client);
+
         }
         #endregion
     }
