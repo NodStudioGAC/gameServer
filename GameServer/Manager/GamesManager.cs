@@ -134,6 +134,8 @@ namespace GameServer.Manager
                         {
                             currentGame = game;
                             card = player.cards[index];
+                            game.binCards[game.binCardsLength] = card;
+                            game.binCardsLength ++;
                             card?.owner?.cards.Remove(card);
                             card.owner = null;
                             SetGameStep(client, "haveNewBinCard");
