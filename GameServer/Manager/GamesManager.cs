@@ -90,7 +90,7 @@ namespace GameServer.Manager
                 {
                     case "playACard":
                         int indexPlayCard = client.sReader.ReadInt32();
-                       GameSender.SendPlayCard(client, game, indexPlayCard);
+                        GameSender.SendPlayCard(client, game, indexPlayCard);
                         break;
 
                     case "sameCard":
@@ -124,25 +124,13 @@ namespace GameServer.Manager
             int index = client.sReader.ReadInt32();
             Console.WriteLine("index");
             Console.WriteLine(index);
-            Game currentGame;
-            Card card;
             foreach (Game game in createdGames)
                 if (game.started)
                     foreach (Player player in game.players)
                     {
                         if (player.client.id == client.id)
-                        {
-                            currentGame = game;
-                            card = player.cards[index];
-                            game.binCards[game.binCardsLength] = card;
-                            game.binCardsLength ++;
-                            card?.owner?.cards.Remove(card);
-                            card.owner = null;
-                            SetGameStep(client, "haveNewBinCard");
-                            //card.power.Action(client);
-                        }
-                        else
-                            SetGameStep(player.client, "haveNewBinCard");
+                            SetBin(player.cards[index], index, game);
+                       
                         break;
                     }
         }
@@ -211,6 +199,14 @@ namespace GameServer.Manager
                             return player.cards[index];
 
             return null;
+        }
+        internal static void SetBin(Card newCard, int index, Game game)
+        {
+            newCard.owner.cards.Remove(newCard);
+            newCard.owner = null;
+            game.binCards[game.binCardsLength] = newCard;
+            game.binCardsLength++;
+            GameSender.SendNewBinCard(newCard, index, game);
         }
         #endregion
 

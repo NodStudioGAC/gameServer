@@ -45,6 +45,15 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             client.Write("haveNewBinCard");
         }
+        internal static void SendNewBinCard(Card card, int index, Game game)
+        {
+            foreach(Player player in game.players)
+            {
+                player.client.Write("newBinCard");
+                player.client.Write(index);
+                SendCard(player.client, card);
+            }
+        }
         internal static void SendOtherPlayerCards(Client client, Card card)
         {
             client.Write("OtherPlayerCard");
