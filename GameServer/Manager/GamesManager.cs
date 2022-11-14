@@ -95,6 +95,8 @@ namespace GameServer.Manager
 
                     case "sameCard":
                         int indexSameCard = client.sReader.ReadInt32();
+                        Console.WriteLine("indexSameCard");
+                        Console.WriteLine(indexSameCard);
                         PlaySameCard(client, game, indexSameCard);
                         break;
 
@@ -158,12 +160,16 @@ namespace GameServer.Manager
         internal static void PlaySameCard(Client client, Game game, int indexSameCard)
         {
             Console.WriteLine("playSameCard");
+            Console.WriteLine(game);
+            Console.WriteLine(indexSameCard);
             Card currentBinCard = game.binCards[game.binCardsLength - 1];
+            Console.WriteLine(currentBinCard);
             Card cardPlayed = null;
             foreach(Player player in game.players)
             {
                 if(player.client.id == client.id)
                 {
+                    Console.WriteLine("findPlayer");
                     cardPlayed = player.cards[indexSameCard];
                     SendSameCard(currentBinCard, cardPlayed, indexSameCard, game);
                     break;
@@ -173,7 +179,7 @@ namespace GameServer.Manager
         }
         internal static void SendSameCard(Card binCard, Card playerCard, int indexPlayerCard, Game game)
         {
-
+            Console.WriteLine("SendSameCard");
             foreach(Player player in game.players)
             {
                 if (binCard.value == playerCard.value)
