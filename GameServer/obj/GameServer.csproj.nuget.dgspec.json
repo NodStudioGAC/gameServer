@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj": {}
+    "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\GameServer.csproj": {}
   },
   "projects": {
-    "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj": {
+    "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj",
+        "projectUniqueName": "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "G:\\5. GIT\\gameServer\\GameServer\\GameServer.csproj",
-        "packagesPath": "C:\\Users\\Alexi\\.nuget\\packages\\",
-        "outputPath": "G:\\5. GIT\\gameServer\\GameServer\\obj\\",
+        "projectPath": "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\GameServer.csproj",
+        "packagesPath": "C:\\Users\\gauti\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gauti\\Documents\\GitHub\\gameServer\\GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Alexi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gauti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -57,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
         }
       }
     }

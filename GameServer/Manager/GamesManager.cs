@@ -90,6 +90,7 @@ namespace GameServer.Manager
 
                     case "sameCard":
                         int indexSameCard = client.sReader.ReadInt32();
+                        PlaySameCard(client, game, indexSameCard);
                         break;
 
                     case "swapPower":
@@ -150,6 +151,26 @@ namespace GameServer.Manager
                     if (playerInGame.client.id != client.id)
                         foreach(int index in indexList)
                             GameSender.SendOtherPlayerCards(client, playerInGame.cards[index]);
+        }
+        internal static void PlaySameCard(Client client, Game game, int indexSameCard)
+        {
+            Card currentBinCard = game.binCards[game.binCardsLength - 1];
+            foreach(Player player in game.players)
+            {
+                if(player.client.id == client.id)
+                {
+
+                    if(currentBinCard.value == player.cards[indexSameCard].value)
+                    {
+                        GameSender.SendPlaySameCard(game, true);
+                    }
+                    else
+                    {
+                        GameSender.SendPlaySameCard(game, false);
+                    }
+                break;
+                }
+            }
         }
         #endregion
 

@@ -60,6 +60,16 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(client.id == player.client.id);
             }
         }
+        internal static void SendPlaySameCard(Client client, Game game, int index)
+        {
+            foreach (Player player in game.players)
+            {
+                player.client.Write("action");
+                player.client.Write("sameCard");
+                player.client.Write(index);
+                player.client.Write(client.id == player.client.id);
+            }
+        }
         internal static void SendNewStockCard(Game game, Card card)
         {
             foreach (Player player in game.players)
@@ -72,6 +82,14 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             client.Write("power");
             client.Write($"{power}");
+        }
+        internal static void SendPlaySameCard(Game game, bool isSameCard)
+        {
+            foreach(Player player in game.players)
+            {
+                player.client.Write("sameCard");
+                player.client.Write(isSameCard);
+            }
         }
         internal static void SendEndGame(Client client)
         {
