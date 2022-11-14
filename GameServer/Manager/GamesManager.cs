@@ -57,21 +57,26 @@ namespace GameServer.Manager
         internal static void SetGameStep(Client client, string currentStep)
         {
             Game game = SearchClientStartedGame(client);
-            if(game != null)
+            if (game != null)
+                Console.WriteLine(currentStep);
+                Console.WriteLine(game.step);
                 if (game.step == currentStep)
-                    switch (currentStep)
-                    {
-                        case "watchedTheirCards":
-                            foreach (Player playerInGame in game.players)
-                                GameSender.SendWatchedCardsVerification(playerInGame.client);
-                            break;
+                        switch (currentStep)
+                        {
+                            case "watchedTheirCards":
+                                game.step = null;
+                                foreach (Player playerInGame in game.players)
+                                    GameSender.SendWatchedCardsVerification(playerInGame.client);
+                                
+                                break;
 
-                        case "haveNewBinCard":
-                            Console.WriteLine("haveNewBinCard");
-                            foreach (Player playerInGame in game.players)
-                                GameSender.SendNewBinCardVerification(playerInGame.client);
-                            break;
-                    }
+                            case "haveNewBinCard":
+                                game.step = null;
+                                Console.WriteLine("haveNewBinCard");
+                                foreach (Player playerInGame in game.players)
+                                    GameSender.SendNewBinCardVerification(playerInGame.client);
+                                break;
+                        }
 
                 else
                     game.step = currentStep;
@@ -122,6 +127,7 @@ namespace GameServer.Manager
             foreach (Game game in createdGames)
                 if (game.started)
                     foreach (Player player in game.players)
+                    {
                         if (player.client.id == client.id)
                         {
                             currentGame = game;
@@ -130,8 +136,11 @@ namespace GameServer.Manager
                             card.owner = null;
                             SetGameStep(client, "haveNewBinCard");
                             //card.power.Action(client);
-                            break;
                         }
+                        else
+                            SetGameStep(player.client, "haveNewBinCard");
+                        break;
+                    }
         }
         internal static void SendOtherPlayerCards(Client client)
         {
