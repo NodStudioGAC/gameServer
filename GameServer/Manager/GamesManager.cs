@@ -127,7 +127,7 @@ namespace GameServer.Manager
                             card = player.cards[index];
                             card?.owner?.cards.Remove(card);
                             card.owner = null;
-                            SetGameStep(client, "watchedTheirCards");
+                            SetGameStep(client, "haveNewBinCard");
                             break;
                         }
         }
