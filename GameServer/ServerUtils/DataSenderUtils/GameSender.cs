@@ -83,6 +83,11 @@ namespace GameServer.ServerUtils.DataSenderUtils
             client.Write("power");
             client.Write($"{power}");
         }
+        internal static void SendHaveNoPower(Client client, string power)
+        {
+            client.Write("power");
+            client.Write("noPower");
+        }
         internal static void SendPlaySameCard(Game game, bool isSameCard)
         {
             foreach(Player player in game.players)
