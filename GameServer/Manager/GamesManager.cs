@@ -129,7 +129,7 @@ namespace GameServer.Manager
                             card?.owner?.cards.Remove(card);
                             card.owner = null;
                             SetGameStep(client, "haveNewBinCard");
-                            card.power.Action(client);
+                            //card.power.Action(client);
                             break;
                         }
         }
