@@ -129,16 +129,10 @@ namespace GameServer.Manager
                             card?.owner?.cards.Remove(card);
                             card.owner = null;
                             SetGameStep(client, "haveNewBinCard");
+                            card.power.Action(client);
                             break;
                         }
         }
-        //internal static void SendBinCard(Game game, Player currentPlayer, Card card)
-        //{
-        //    foreach(Player player in game.players)
-        //        GameSender.SendNewBinCardVerification(player.client);
-
-        //    //card.power.Action(currentPlayer.client);
-        //}
         internal static void SendOtherPlayerCards(Client client)
         {
             List<int> indexList = new List<int>();
