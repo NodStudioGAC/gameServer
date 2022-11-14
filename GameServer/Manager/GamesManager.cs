@@ -133,7 +133,7 @@ namespace GameServer.Manager
         internal static void SendBinCard(Game game, Player currentPlayer, Card card)
         {
             foreach(Player player in game.players)
-                GameSender.SendBinCard(player.client, card);
+                GameSender.SendNewBinCardVerification(player.client);
 
             card.power.Action(currentPlayer.client);
         }
