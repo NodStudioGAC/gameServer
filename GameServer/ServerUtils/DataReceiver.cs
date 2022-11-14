@@ -31,11 +31,6 @@ namespace GameServer.ServerUtils
                     GamesManager.SetGameStep(client, "watchedTheirCards");
                     break;
 
-                case "canPlaySameCard":
-                    GamesManager.SetPlaySameCard(client);
-                    break;
-
-
                 case "action":
                     GamesManager.ReceiveAction(client);
                     break;

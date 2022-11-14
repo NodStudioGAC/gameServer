@@ -59,18 +59,21 @@ namespace GameServer.Manager
             Game game = SearchClientStartedGame(client);
             if(game != null)
                 if (game.step == currentStep)
-                    foreach (Player playerInGame in game.players)
-                        GameSender.SendWatchedCardsVerification(playerInGame.client);
+                    switch (currentStep)
+                    {
+                        case "watchedTheirCards":
+                            foreach (Player playerInGame in game.players)
+                                GameSender.SendWatchedCardsVerification(playerInGame.client);
+                            break;
+
+                        case "haveNewBinCard":
+                            foreach (Player playerInGame in game.players)
+                                GameSender.SendNewBinCardVerification(playerInGame.client);
+                            break;
+                    }
 
                 else
                     game.step = currentStep;
-        }
-        internal static void SetPlaySameCard(Client client)
-        {
-            Game game = SearchClientStartedGame(client);
-            if(game != null)
-                foreach(Player playerInGame in game.players)
-                    GameSender.SendCanPlaySameCardTurn(playerInGame.client);
         }
         internal static void ReceiveAction(Client client)
         {

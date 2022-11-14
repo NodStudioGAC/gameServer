@@ -24,17 +24,6 @@ namespace Models
         #endregion
 
         #region FUNCTIONS
-        public override string ToString()
-        {
-            return $"{GetTranslatedValue(value)} {sign}";
-        }
-
-        public override bool Equals(object obj)
-        {
-            Card cardObject = (Card)obj;
-            return cardObject.value == value && cardObject.sign == sign;
-        }
-
         internal void SetOwner(Player owner)
         {
             this.owner = owner;
@@ -60,6 +49,18 @@ namespace Models
                 default:
                     return value.ToString();
             }
+        }
+        #endregion
+
+        #region OVERRIDE
+        public override string ToString()
+        {
+            return $"{GetTranslatedValue(value)} {sign}";
+        }
+        public override bool Equals(object obj)
+        {
+            Card cardObject = (Card)obj;
+            return cardObject.value == value && cardObject.sign == sign;
         }
         #endregion
 
