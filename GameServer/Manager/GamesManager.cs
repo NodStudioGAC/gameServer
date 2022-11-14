@@ -67,6 +67,7 @@ namespace GameServer.Manager
                             break;
 
                         case "haveNewBinCard":
+                            Console.WriteLine("haveNewBinCard");
                             foreach (Player playerInGame in game.players)
                                 GameSender.SendNewBinCardVerification(playerInGame.client);
                             break;
