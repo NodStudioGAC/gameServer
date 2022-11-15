@@ -134,19 +134,6 @@ namespace GameServer.Manager
                         break;
                     }
         }
-        internal static void SendOtherPlayerCards(Client client)
-        {
-            List<int> indexList = new List<int>();
-            while (client.sReader.ReadString() == "cardIndex")
-                indexList.Add(client.sReader.ReadInt32());
-
-            Game game = SearchClientStartedGame(client);
-            if(game != null)
-                foreach (Player playerInGame in game.players)
-                    if (playerInGame.client.id != client.id)
-                        foreach(int index in indexList)
-                            GameSender.SendOtherPlayerCards(client, playerInGame.cards[index]);
-        }
         internal static void PlaySameCard(Client client, Game game, int indexSameCard)
         {
             Console.WriteLine("playSameCard");

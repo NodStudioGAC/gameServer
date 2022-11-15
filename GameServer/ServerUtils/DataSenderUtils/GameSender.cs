@@ -54,11 +54,6 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 SendCard(player.client, card);
             }
         }
-        internal static void SendOtherPlayerCards(Client client, Card card)
-        {
-            client.Write("OtherPlayerCard");
-            SendCard(client, card);
-        }
         internal static void SendPlayCard(Client client, Game game, int index)
         {
             foreach (Player player in game.players)
@@ -94,14 +89,6 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             client.Write("power");
             client.Write("noPower");
-        }
-        internal static void SendPlaySameCard(Game game, bool isSameCard)
-        {
-            foreach(Player player in game.players)
-            {
-                player.client.Write("sameCard");
-                player.client.Write(isSameCard);
-            }
         }
         internal static void SendEndGame(Client client)
         {
