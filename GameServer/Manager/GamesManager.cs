@@ -90,6 +90,7 @@ namespace GameServer.Manager
                 switch (action)
                 {
                     case "playACard":
+                        // conditions tour du joueur
                         int indexPlayCard = client.sReader.ReadInt32();
                         GameSender.SendPlayCard(client, game, indexPlayCard);
                         break;

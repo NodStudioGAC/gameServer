@@ -10,19 +10,9 @@ namespace GameServer.ServerUtils
             string login = client.sReader.ReadString();
             Console.WriteLine(login);
             Matchmaking.STATE state = Matchmaking.AddPlayer(login, client);
-            switch (state)
-            {
-                case Matchmaking.STATE.WAITING:
-                    client.Write("waitingRoom");
-                    break;
-                case Matchmaking.STATE.UNWAITING:
-                    client.Write("unwaitingRoom");
-                    break;
-                case Matchmaking.STATE.MATCH:
-                    client.Write("startGame");
-                    break;
+            if(state == Matchmaking.STATE.MATCH)
+                client.Write("startGame");
 
-            }
         }
     }
 }
