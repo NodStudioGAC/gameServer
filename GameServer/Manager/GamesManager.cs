@@ -85,6 +85,7 @@ namespace GameServer.Manager
         {
             Game game = SearchClientStartedGame(client);
             string action = client.sReader.ReadString();
+            Console.WriteLine($"{action}");
             if(game != null)
                 switch (action)
                 {

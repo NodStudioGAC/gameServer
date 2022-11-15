@@ -8,7 +8,7 @@ namespace GameServer.ServerUtils
     {
         internal static void Read(Client client, string data)
         {
-            Console.WriteLine($"receive data: {data}");
+            Console.WriteLine(data != "keep connection"?  $"receive data: {data}": "");
             switch (data)
             {
                 case "keep connection":
