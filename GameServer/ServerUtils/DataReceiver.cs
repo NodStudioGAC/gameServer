@@ -43,6 +43,10 @@ namespace GameServer.ServerUtils
                     GamesManager.ReceiveBinCard(client);
                     break;
 
+                case "binUpdated":
+                    GamesManager.SetGameStep(client, "haveNewBinCard");
+                    break;
+
                 default:
                     break;
             }
