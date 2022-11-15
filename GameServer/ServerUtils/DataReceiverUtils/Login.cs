@@ -8,6 +8,7 @@ namespace GameServer.ServerUtils
         internal static void ReadLogin(Client client)
         {
             string login = client.sReader.ReadString();
+            Console.WriteLine(login);
             Matchmaking.STATE state = Matchmaking.AddPlayer(login, client);
             switch (state)
             {

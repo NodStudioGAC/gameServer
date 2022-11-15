@@ -49,7 +49,7 @@ namespace GameServer.ServerUtils.DataSenderUtils
         {
             foreach(Player player in game.players)
             {
-                player.client.Write("haveNewBinCard");
+                player.client.Write("newBinCard");
                 player.client.Write(index);
                 SendCard(player.client, card);
             }
