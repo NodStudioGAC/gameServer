@@ -1,6 +1,5 @@
 ﻿using GameServer.ServerUtils;
 using GameServer.ServerUtils.Models;
-using GameServer.ServerUtils.MorpionManager;
 
 namespace Models
 {

@@ -1,7 +1,4 @@
-﻿using GameServer.Manager;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace GameServer.ServerUtils.DataReceiverUtils
 {
@@ -12,7 +9,6 @@ namespace GameServer.ServerUtils.DataReceiverUtils
         {
             Console.WriteLine("start endgame");
             Console.WriteLine(client);
-            GamesManager.EndGame(client);
             client.Disconnect();
         }
 
