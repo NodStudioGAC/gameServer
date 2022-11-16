@@ -1,5 +1,4 @@
-﻿using GameServer.Manager;
-using GameServer.ServerUtils.DataReceiverUtils;
+﻿using GameServer.ServerUtils.DataReceiverUtils;
 using System;
 
 namespace GameServer.ServerUtils
@@ -23,29 +22,32 @@ namespace GameServer.ServerUtils
                     Login.ReadLogin(client);
                     break;
 
-                case "isReady":
-                    GamesManager.StartGames(client);
+                case "startedGame":
+                    MorpionManager.StartGame(client);
                     break;
 
-                case "watchedTheirCards":
-                    GamesManager.SetGameStep(client, "watchedTheirCards");
-                    break;
 
-                case "action":
-                    GamesManager.ReceiveAction(client);
-                    break;
+/////// ------ CACTUS GAME -------
 
-                case "newStockCard":
-                    GamesManager.CreateNewStockCard(client);
-                    break;
+                //case "watchedTheirCards":
+                //    GamesManager.SetGameStep(client, "watchedTheirCards");
+                //    break;
 
-                case "binCard":
-                    GamesManager.ReceiveBinCard(client);
-                    break;
+                //case "action":
+                //    GamesManager.ReceiveAction(client);
+                //    break;
 
-                case "binUpdated":
-                    GamesManager.SetGameStep(client, "haveNewBinCard");
-                    break;
+                //case "newStockCard":
+                //    GamesManager.CreateNewStockCard(client);
+                //    break;
+
+                //case "binCard":
+                //    GamesManager.ReceiveBinCard(client);
+                //    break;
+
+                //case "binUpdated":
+                //    GamesManager.SetGameStep(client, "haveNewBinCard");
+                //    break;
 
                 default:
                     break;

@@ -1,6 +1,6 @@
-﻿using GameServer.Manager;
-using GameServer.ServerUtils;
-using System;
+﻿using GameServer.ServerUtils;
+using GameServer.ServerUtils.Models;
+using GameServer.ServerUtils.MorpionManager;
 
 namespace Models
 {
@@ -15,14 +15,13 @@ namespace Models
         #region FUNCTIONS
         internal static STATE AddPlayer(string login, Client client)
         {
-            Player newPlayer = new Player(login, client);
             if (!isWaitingPlayer)
             {
                 isWaitingPlayer = true;
-                waitingPlayer = newPlayer;
+                waitingPlayer = new Player(login, client, Cell.STATE.CROSS);
                 return STATE.WAITING;
             }
-            else if (newPlayer.Equals(waitingPlayer))
+            else if (client.id == waitingPlayer.client.id)
             {
                 isWaitingPlayer = false;
                 waitingPlayer = null;
@@ -31,7 +30,7 @@ namespace Models
             else
             {
                 isWaitingPlayer = false;
-                GamesManager.CreateNewGame(waitingPlayer, newPlayer);
+                MorpionManager.CreateNewGame(waitingPlayer, new Player(login, client, Cell.STATE.CIRCLE));
                 waitingPlayer.client.Write("startGame");
  
 
