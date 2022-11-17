@@ -32,5 +32,14 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(player.client.id == game.currentPlayer.client.id);
             }
         }
+        internal static bool SendEndGame(Cell.STATE state, Game game)
+        {
+            foreach (Player player in game.players)
+            {
+                player.client.Write("endGame");
+                player.client.Write(state.ToString());
+            }
+            return true;
+        }
     }
 }

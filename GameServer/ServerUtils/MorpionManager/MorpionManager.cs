@@ -39,9 +39,12 @@ namespace GameServer.ServerUtils
             Game currentGame = GetGame(client);
             if(GameVerification(currentGame, Game.STEP.PLAYED))
             {
-                if (currentGame.IsEndGame().Key)
+                KeyValuePair<bool, Cell.STATE> endGameResults = currentGame.IsEndGame();
+                if (endGameResults.Key)
                 {
                     currentGame.step = Game.STEP.END;
+                    if (MorpionSender.SendEndGame(endGameResults.Value, currentGame))
+                        EraseGame(currentGame);
                 }
                 else
                 {
@@ -75,9 +78,9 @@ namespace GameServer.ServerUtils
             game.step = newStep;
             return false;
         }
-        void EraseGame(Game game)
+        static void EraseGame(Game game)
         {
-            game = null;
+            createdGames.Remove(game);
         }
         #endregion
     }
