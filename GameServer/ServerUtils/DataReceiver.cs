@@ -26,6 +26,10 @@ namespace GameServer.ServerUtils
                     MorpionManager.StartGame(client);
                     break;
 
+                case "play":
+                    MorpionManager.Play(client);
+                    break;
+
 
 /////// ------ CACTUS GAME -------
 

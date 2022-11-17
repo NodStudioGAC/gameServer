@@ -63,9 +63,9 @@ namespace GameServer.ServerUtils.Models
             }
         }
 
-        bool Play(Client client, int[] coor)
+        internal bool Play(Client client, int[] coor)
         {
-            if(client.id == currentPlayer.client.id)
+            if (client.id == currentPlayer.client.id && cells[coor[0], coor[1]].state == Cell.STATE.VOID)
             {
                 cells[coor[0], coor[1]].SetState(players[0].client.id == client.id ? Cell.STATE.CROSS : Cell.STATE.CIRCLE);
                 return true;

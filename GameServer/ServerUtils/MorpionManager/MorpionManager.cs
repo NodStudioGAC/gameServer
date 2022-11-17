@@ -22,6 +22,15 @@ namespace GameServer.ServerUtils
             if(GameVerification(currentGame, Game.STEP.STARTED))
                 MorpionSender.SendGameDatas(GetGame(client)); 
         }
+
+        internal static void Play(Client client)
+        {
+            int[] coords = new int[] { client.sReader.ReadInt32(), client.sReader.ReadInt32()};
+            Game currentGame = GetGame(client);
+            if(currentGame.Play(client, coords))
+                MorpionSender.SendHasPlayed(currentGame, coords);
+        }
+
         #endregion
 
         #region UTILS
