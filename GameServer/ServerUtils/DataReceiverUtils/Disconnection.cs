@@ -8,7 +8,7 @@ namespace GameServer.ServerUtils.DataReceiverUtils
         internal static void EndGame(Client client)
         {
             Console.WriteLine("start endgame");
-            Console.WriteLine(client);
+            MorpionManager.EraseGame(MorpionManager.GetGame(client));
             client.Disconnect();
         }
 

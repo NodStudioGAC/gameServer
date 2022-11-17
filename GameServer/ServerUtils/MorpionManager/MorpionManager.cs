@@ -52,13 +52,12 @@ namespace GameServer.ServerUtils
                     MorpionSender.SendChangeTurn(currentGame);
                 }
             }
-                
         }
 
         #endregion
 
         #region UTILS
-        static Game GetGame(Client client)
+        internal static Game GetGame(Client client)
         {
             foreach(Game game in createdGames)
                 foreach(Player player in game.players)
@@ -78,7 +77,7 @@ namespace GameServer.ServerUtils
             game.step = newStep;
             return false;
         }
-        static void EraseGame(Game game)
+        internal static void EraseGame(Game game)
         {
             createdGames.Remove(game);
         }
