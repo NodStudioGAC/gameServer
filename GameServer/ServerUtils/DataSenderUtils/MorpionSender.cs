@@ -14,11 +14,12 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(player.state.ToString());
             }
         }
-        internal static void SendHasPlayed(Game game, int[] coords)
+        internal static void SendSetCell(Game game, int[] coords)
         {
             foreach(Player player in game.players)
             {
-                player.client.Write("hasPlayed");
+                player.client.Write("setCell");
+                player.client.Write(game.currentPlayer.state.ToString());
                 player.client.Write(coords[0]);
                 player.client.Write(coords[1]);
             }

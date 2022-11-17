@@ -13,7 +13,7 @@ namespace GameServer.ServerUtils.Models
         #region ATTRIBUTES
         Cell[,] cells;
         internal Player[] players;
-        Player currentPlayer;
+        internal Player currentPlayer;
         Line[] lines;
         internal STEP step;
         #endregion

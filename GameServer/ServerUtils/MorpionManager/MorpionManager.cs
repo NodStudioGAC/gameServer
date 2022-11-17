@@ -28,7 +28,7 @@ namespace GameServer.ServerUtils
             int[] coords = new int[] { client.sReader.ReadInt32(), client.sReader.ReadInt32()};
             Game currentGame = GetGame(client);
             if(currentGame.Play(client, coords))
-                MorpionSender.SendHasPlayed(currentGame, coords);
+                MorpionSender.SendSetCell(currentGame, coords);
         }
 
         #endregion
