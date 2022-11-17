@@ -29,6 +29,9 @@ namespace GameServer.ServerUtils
                 case "play":
                     MorpionManager.Play(client);
                     break;
+                case "hasPlayed":
+                    MorpionManager.HasPlayed(client);
+                    break;
 
 
 /////// ------ CACTUS GAME -------

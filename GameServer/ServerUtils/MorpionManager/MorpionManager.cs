@@ -20,15 +20,36 @@ namespace GameServer.ServerUtils
         {
             Game currentGame = GetGame(client);
             if(GameVerification(currentGame, Game.STEP.STARTED))
+            {
+                currentGame.step = Game.STEP.CANPLAY;
                 MorpionSender.SendGameDatas(GetGame(client)); 
+            }
         }
 
         internal static void Play(Client client)
         {
             int[] coords = new int[] { client.sReader.ReadInt32(), client.sReader.ReadInt32()};
             Game currentGame = GetGame(client);
-            if(currentGame.Play(client, coords))
+            if (currentGame.Play(client, coords))
                 MorpionSender.SendSetCell(currentGame, coords);
+        }
+
+        internal static void HasPlayed(Client client)
+        {
+            Game currentGame = GetGame(client);
+            if(GameVerification(currentGame, Game.STEP.PLAYED))
+            {
+                if (currentGame.IsEndGame().Key)
+                {
+                    currentGame.step = Game.STEP.END;
+                }
+                else
+                {
+                    currentGame.ChangeTurn();
+                    MorpionSender.SendChangeTurn(currentGame);
+                }
+            }
+                
         }
 
         #endregion

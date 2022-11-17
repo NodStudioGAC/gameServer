@@ -24,5 +24,13 @@ namespace GameServer.ServerUtils.DataSenderUtils
                 player.client.Write(coords[1]);
             }
         }
+        internal static void SendChangeTurn(Game game)
+        {
+            foreach(Player player in game.players)
+            {
+                player.client.Write("turnChanged");
+                player.client.Write(player.client.id == game.currentPlayer.client.id);
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace GameServer.ServerUtils.Models
     internal class Game {
 
         #region ENUM
-        public enum STEP { INIT, STARTED, PLAYED };
+        public enum STEP { INIT, STARTED, PLAYED, CANPLAY, END };
         #endregion
 
         #region ATTRIBUTES
@@ -65,16 +65,18 @@ namespace GameServer.ServerUtils.Models
 
         internal bool Play(Client client, int[] coor)
         {
-            if (client.id == currentPlayer.client.id && cells[coor[0], coor[1]].state == Cell.STATE.VOID)
+            if (step == STEP.CANPLAY && client.id == currentPlayer.client.id && cells[coor[0], coor[1]].state == Cell.STATE.VOID)
             {
                 cells[coor[0], coor[1]].SetState(players[0].client.id == client.id ? Cell.STATE.CROSS : Cell.STATE.CIRCLE);
+                step = STEP.INIT;
                 return true;
             }
             return false;
         }
-        void ChangeTurn()
+        internal void ChangeTurn()
         {
             currentPlayer = players[0].client.id == currentPlayer.client.id ? players[1] : players[0];
+            step = STEP.CANPLAY;
         }
 
         internal KeyValuePair<bool, Cell.STATE> IsEndGame()
